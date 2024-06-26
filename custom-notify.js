@@ -13,6 +13,7 @@
             from: 'top',
             align: 'right'
         };
+        let val_z_index = 6001;
 
         if (var_type == 'success') {
             var_title = 'Success!! ';
@@ -53,6 +54,13 @@
                 val_placement = window.cbn_placement;
             }
 
+            if (typeof window.cbn_z_index === 'undefined') {
+                // variable is undefined
+            }
+            else  {
+                val_z_index = window.cbn_z_index;
+            }
+
             return window.notify = $.notify({
                     // obj.message
                     // options
@@ -67,7 +75,7 @@
                 {
                     /* allow_dismiss: false, */
                     type: var_type,
-                    z_index: 6001,
+                    z_index: val_z_index,
                     showProgressbar: val_showProgressbar,
                     allow_dismiss: val_allow_dismiss,
                     delay: var_delay,
